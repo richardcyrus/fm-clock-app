@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Mentor | Clock App</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+  </head>
+  <body>
+    <div class="main-panel">
+      <figure>
+        <blockquote>
+          <p>
+            The science of operations, as derived from mathematics more
+            especially, is a science of itself, and has its own abstract truth
+            and value.
+          </p>
+        </blockquote>
+        <figcaption>Ada Lovelace</figcaption>
+        <button class="refresh" id="refresh" type="button" aria-label="Load new quote">
+        </button>
+      </figure>
+      <p>
+        <span class="sun-moon-icon"></span>
+        <span id="greeting" class="greeting">Good Morning</span>, it's currently
+      </p>
+      <p class="time-display">
+        <span id="clock-display" class="clock">11:37</span>
+        <span id="short-timezone" class="timezone-abbr">BST</span>
+      </p>
+      <p class="location-display">
+        in <span id="location-name" class="location">London, UK</span>
+      </p>
+      <button type="button" class="button disclosure">
+        <span class="disclosure-text">More</span>
+        <span class="disclosure-icon"></span>
+      </button>
+    </div>
+    <div class="details-panel">
+      <p class="label">Current timezone</p>
+      <p id="timezone-name">Europe/London</p>
+      <p class="label">Day of the year</p>
+      <p id="day-of-year">295</p>
+      <p class="label">Day of the week</p>
+      <p id="day-of-week">5</p>
+      <p class="label">Week number</p>
+      <p id="week-number">42</p>
+    </div>
+  </body>
+</html>
