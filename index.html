@@ -10,9 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
   </head>
-  <body>
+  <body class="daytime">
     <div class="main-panel">
-      <figure>
+      <figure class="quote">
         <blockquote>
           <p>
             The science of operations, as derived from mathematics more
@@ -20,13 +20,13 @@
             and value.
           </p>
         </blockquote>
-        <figcaption>Ada Lovelace</figcaption>
-        <button class="refresh" id="refresh" type="button" aria-label="Load new quote">
+        <figcaption class="quote-author">Ada Lovelace</figcaption>
+        <button class="button refresh" id="refresh" type="button" aria-label="Load new quote">
         </button>
       </figure>
-      <p>
+      <p class="greeting">
         <span class="sun-moon-icon"></span>
-        <span id="greeting" class="greeting">Good Morning</span>, it's currently
+        <span id="greeting" class="greeting-text">Good Morning</span><span class="time-introduction">, it's currently</span>
       </p>
       <p class="time-display">
         <span id="clock-display" class="clock">11:37</span>

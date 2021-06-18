@@ -52,6 +52,8 @@ Users should be able to:
 - [A Modern CSS Reset](https://piccalil.li/blog/a-modern-css-reset/)
 - [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 - [A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
+- [CSS: Cascading Style Sheets](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [Fun with Viewport Units](https://css-tricks.com/fun-viewport-units/)
 
 ## Author
 
