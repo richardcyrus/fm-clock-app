@@ -54,6 +54,8 @@ Users should be able to:
 - [A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
 - [CSS: Cascading Style Sheets](https://developer.mozilla.org/en-US/docs/Web/CSS)
 - [Fun with Viewport Units](https://css-tricks.com/fun-viewport-units/)
+- [How to Scale SVG](https://css-tricks.com/scale-svg/)
+- [SVG Attribute reference &gt; viewBox](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox)
 
 ## Author
 
