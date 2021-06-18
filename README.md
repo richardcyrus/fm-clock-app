@@ -56,6 +56,8 @@ Users should be able to:
 - [Fun with Viewport Units](https://css-tricks.com/fun-viewport-units/)
 - [How to Scale SVG](https://css-tricks.com/scale-svg/)
 - [SVG Attribute reference &gt; viewBox](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox)
+- [How to make a background blur in CSS with one line of code](https://blog.prototypr.io/how-to-make-a-background-blur-in-css-with-one-line-of-code-e446c7236e60)
+- [How to Use CSS Grid for Sticky Headers and Footers](https://css-tricks.com/how-to-use-css-grid-for-sticky-headers-and-footers/)
 
 ## Author
 
