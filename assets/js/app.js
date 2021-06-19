@@ -6,7 +6,7 @@
 
   // API services URLs
   const freegeoipUrl = "https://freegeoip.app/json/";
-  const worldTimeApiUrl = "http://worldtimeapi.org/api/ip";
+  const worldTimeApiUrl = "https://worldtimeapi.org/api/ip";
   const quotableApiUrl =
     "https://api.quotable.io/random?tags=technology|famous-quotes";
 
