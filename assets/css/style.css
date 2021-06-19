@@ -317,7 +317,6 @@ body {
 
 .quote-author {
   font-weight: var(--font-weight-bold);
-  grid-column: 1/2;
   margin-top: 0.5rem;
 }
 @media screen and (min-width: 48em) {

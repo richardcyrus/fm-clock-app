@@ -13,15 +13,17 @@
   <body id="body" class="daytime">
     <div class="container">
       <div class="main-panel">
-        <figure class="quote">
-          <blockquote>
-            <p id="quote">
-              The science of operations, as derived from mathematics more
-              especially, is a science of itself, and has its own abstract truth
-              and value.
-            </p>
-          </blockquote>
-          <figcaption class="quote-author">Ada Lovelace</figcaption>
+        <div class="quote">
+          <figure>
+            <blockquote>
+              <p id="quote">
+                The science of operations, as derived from mathematics more
+                especially, is a science of itself, and has its own abstract truth
+                and value.
+              </p>
+            </blockquote>
+            <figcaption class="quote-author">Ada Lovelace</figcaption>
+          </figure>
           <button class="button refresh" id="refresh" type="button" aria-label="Load new quote">
             <svg class="refresh-icon" viewBox="0 0 18 18" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -29,7 +31,7 @@
                 fill="#FFF" fill-rule="nonzero" opacity=".5" />
             </svg>
           </button>
-        </figure>
+        </div>
         <p class="greeting">
           <span class="sun-moon-icon"></span>
           <span id="greeting" class="greeting-text">Good Morning</span><span class="time-introduction">, it's
