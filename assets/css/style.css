@@ -326,6 +326,14 @@ body {
   }
 }
 
+#quote::before {
+  content: open-quote;
+}
+
+#quote::after {
+  content: close-quote;
+}
+
 .refresh {
   border-radius: 50%;
   grid-column: 2/-1;
