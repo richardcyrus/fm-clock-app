@@ -6,6 +6,8 @@ This is a solution to the [Clock app challenge on Frontend Mentor](https://www.f
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+    - [Reference design](#reference-design)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -33,6 +35,19 @@ Users should be able to:
 - Be shown the correct greeting and background image based on the time of day they're visiting the site.
 - Generate random programming quotes by clicking the refresh icon near the quote.
 
+### Screenshot
+
+- [Mobile default](./design/screenshots/mobile-screenshot-default.jpg)
+- [Mobile expanded](./design/screenshots/mobile-screenshot-expanded.jpg)
+- [Tablet default](./design/screenshots/tablet-screenshot-default.jpg)
+- [Tablet expanded](./design/screenshots/tablet-screenshot-expanded.jpg)
+- [Desktop default](./design/screenshots/desktop-screenshot-default.jpg)
+- [Desktop expanded](./design/screenshots/desktop-screenshot-expanded.jpg)
+
+#### Reference design
+
+![Reference design](./design/reference/preview.jpg)
+
 ### Links
 
 - [Solution URL](https://github.com/richardcyrus/fm-clock-app)
@@ -52,8 +67,8 @@ Users should be able to:
 
 ### What I learned
 
-- Ad Blockers can prevent XMLHttpRequests from succeeding even when the site otherwise works in a browser or at the command line. This was something I struggled with for the [Free IP Geolocation API](https://freegeoip.app/).
-- I switched from using the built in `fetch()` method for HTTP requests to axios because axios was less picky about the setup. Even when struggling with the Ad Blocker issue, axios just worked for the other APIs while fetch complained about the [World Time API](http://worldtimeapi.org/) with CORS and HTTP vs. HTTPS issues.
+- Ad Blockers can prevent `XMLHttpRequests` or `fetch()` from succeeding even when the site otherwise works in a browser or at the command line. This was something I struggled with for the [Free IP Geolocation API](https://freegeoip.app/).
+- I switched from using the built in `fetch()` method for HTTP requests to `axios` because `axios` was less picky about the setup.
 
 ### Useful resources
 
