@@ -9,6 +9,7 @@ This is a solution to the [Clock app challenge on Frontend Mentor](https://www.f
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
   - [Useful resources](#useful-resources)
 - [Author](#author)
 
@@ -19,7 +20,7 @@ This is a solution to the [Clock app challenge on Frontend Mentor](https://www.f
 Build out a clock application and get it looking as close to the design as possible. Use the following APIs to retrieve the necessary data:
 
 - [World Time API](http://worldtimeapi.org/)
-- [IP Geolocation API](https://freegeoip.app/)
+- [Free IP Geolocation API](https://freegeoip.app/)
 - [Programming Quotes API](https://programming-quotes-api.herokuapp.com/)
 - [Quotable API](https://github.com/lukePeavey/quotable)
 
@@ -46,6 +47,13 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
+- [axios](https://axios-http.com/) - Gets around some quirks with the built-in WindowOrWorkerGlobalScope.fetch() method.
+- [Luxon](https://moment.github.io/luxon/index.html) - Makes working with the date and time simpler.
+
+### What I learned
+
+- Ad Blockers can prevent XMLHttpRequests from succeeding even when the site otherwise works in a browser or at the command line. This was something I struggled with for the [Free IP Geolocation API](https://freegeoip.app/).
+- I switched from using the built in `fetch()` method for HTTP requests to axios because axios was less picky about the setup. Even when struggling with the Ad Blocker issue, axios just worked for the other APIs while fetch complained about the [World Time API](http://worldtimeapi.org/) with CORS and HTTP vs. HTTPS issues.
 
 ### Useful resources
 

@@ -10,12 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
   </head>
-  <body class="daytime">
+  <body id="body" class="daytime">
     <div class="container">
       <div class="main-panel">
         <figure class="quote">
           <blockquote>
-            <p>
+            <p id="quote">
               The science of operations, as derived from mathematics more
               especially, is a science of itself, and has its own abstract truth
               and value.
@@ -40,7 +40,7 @@
           <span id="short-timezone" class="timezone-abbr">BST</span>
         </p>
         <p class="location-display">
-          in <span id="location-name" class="location">London, UK</span>
+          in <span id="city-name" class="location">London</span>, <span id="country">UK</span>
         </p>
         <button type="button" class="button disclosure">
           <span class="disclosure-text">More</span>
@@ -69,5 +69,10 @@
         </div>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"
+      integrity="sha256-JLmknTdUZeZZ267LP9qB+/DT7tvxOOKctSKeUC2KT6E=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@1.27.0/build/global/luxon.min.js"
+      integrity="sha256-cJnCTPRTD3OUjTD4Ml0WEMsmTiLl71arKaZ9DEZJk0o=" crossorigin="anonymous"></script>
+    <script src="./assets/js/app.js"></script>
   </body>
 </html>

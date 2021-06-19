@@ -275,7 +275,7 @@ body {
 
   @media screen and (min-width: 48em) {
     grid-template-rows:
-      minmax(8rem, min-content) 24.25rem 1.75rem minmax(10.9375rem, min-content)
+      minmax(8rem, min-content) 18.25rem 1.75rem minmax(10.9375rem, min-content)
       minmax(1.75rem, min-content) 8.5rem;
     padding: 5rem 8.2294rem 4rem 4rem;
   }
@@ -291,9 +291,9 @@ body {
       "greeting ."
       "timedisplay ."
       "locationdisplay disclosure";
-    grid-template-columns: 38rem auto;
+    grid-template-columns: 43rem auto;
     grid-template-rows:
-      minmax(8rem, min-content) 14.5624rem 2.75rem minmax(12.5rem, min-content)
+      minmax(8rem, min-content) 13.5624rem 2.75rem minmax(12.5rem, min-content)
       3.5rem;
     padding: 3.5rem 10.3125rem 6.125rem;
   }
@@ -319,6 +319,11 @@ body {
 .quote-author {
   font-weight: var(--font-weight-bold);
   grid-column: 1 / 2;
+  margin-top: 0.5rem;
+
+  @media screen and (min-width: 48em) {
+    margin-top: 0.8125rem;
+  }
 }
 
 .refresh {
