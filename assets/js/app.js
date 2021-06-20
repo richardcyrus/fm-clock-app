@@ -1,48 +1,36 @@
-(function () {
-  "use strict";
+// global axios, luxon
+
+;(function (axios, luxon) {
+  'use strict'
 
   // Make date and time use simpler.
-  const DateTime = luxon.DateTime;
+  const DateTime = luxon.DateTime
 
   // API services URLs
-  const freegeoipUrl = "https://freegeoip.app/json/";
-  const worldTimeApiUrl = "https://worldtimeapi.org/api/ip";
+  const freegeoipUrl = 'https://freegeoip.app/json/'
+  const worldTimeApiUrl = 'https://worldtimeapi.org/api/ip'
+
   const quotableApiUrl =
-    "https://api.quotable.io/random?tags=technology|famous-quotes";
+    'https://api.quotable.io/random?tags=technology|famous-quotes'
 
   // Buttons for click handlers
-  const refreshButton = document.querySelector(".refresh");
-  const showDetailsButton = document.querySelector(".disclosure");
+  const refreshButton = document.querySelector('.refresh')
+  const showDetailsButton = document.querySelector('.disclosure')
 
-  const body = document.querySelector("#body");
+  refreshButton.addEventListener('click', getRandomQuote)
 
-  // Main Panel areas to update.
-  const quoteEl = document.querySelector("#quote");
-  const quoteAuthorEl = document.querySelector(".quote-author");
-  const greetingTextEl = document.querySelector("#greeting");
-  const clockEl = document.querySelector("#clock-display");
-  const shortTZEl = document.querySelector("#short-timezone");
-  const cityNameTextEl = document.querySelector("#city-name");
-  const countryTextEl = document.querySelector("#country");
-  const detailsToggleTextEl = document.querySelector(".disclosure-text");
+  showDetailsButton.addEventListener('click', function () {
+    const body = document.querySelector('#body')
+    const detailsToggleTextEl = document.querySelector('.disclosure-text')
 
-  // Details Panel areas to update.
-  const timezoneNameEl = document.querySelector("#timezone-name");
-  const dayOfYearEl = document.querySelector("#day-of-year");
-  const dayOfWeekEl = document.querySelector("#day-of-week");
-  const weekNumberEl = document.querySelector("#week-number");
-
-  refreshButton.addEventListener("click", getRandomQuote);
-
-  showDetailsButton.addEventListener("click", function () {
-    if (body.classList.contains("show-details")) {
-      body.classList.remove("show-details");
-      detailsToggleTextEl.textContent = "more";
+    if (body.classList.contains('show-details')) {
+      body.classList.remove('show-details')
+      detailsToggleTextEl.textContent = 'more'
     } else {
-      body.classList.add("show-details");
-      detailsToggleTextEl.textContent = "less";
+      body.classList.add('show-details')
+      detailsToggleTextEl.textContent = 'less'
     }
-  });
+  })
 
   /**
    * Update the body class list and the greeting based on daytime or nighttime.
@@ -50,12 +38,57 @@
    * @param   {String}  timePeriod  the class name to apply to the body tag.
    * @param   {String}  greeting    the greeting to display for the user.
    */
-  function setDayOrNight(timePeriod, greeting) {
-    const timePeriodClasses = ["nighttime", "daytime"];
+  function setDayOrNight (timePeriod, greeting) {
+    const body = document.querySelector('#body')
+    const greetingTextEl = document.querySelector('#greeting')
 
-    greetingTextEl.textContent = greeting;
-    body.classList.remove(...timePeriodClasses);
-    body.classList.add(timePeriod);
+    const timePeriodClasses = ['nighttime', 'daytime']
+
+    greetingTextEl.textContent = greeting
+    body.classList.remove(...timePeriodClasses)
+    body.classList.add(timePeriod)
+  }
+
+  function updateQuote (quote, author) {
+    const quoteEl = document.querySelector('#quote')
+    const quoteAuthorEl = document.querySelector('.quote-author')
+
+    quoteEl.textContent = quote
+    quoteAuthorEl.textContent = author
+  }
+
+  function updateLocation (city, country) {
+    const cityNameTextEl = document.querySelector('#city-name')
+    const countryTextEl = document.querySelector('#country')
+
+    cityNameTextEl.textContent = city
+    countryTextEl.textContent = country
+  }
+
+  function updateTimeData (
+    abbreviation,
+    timezone,
+    dayOfWeek,
+    dayOfYear,
+    weekNumber,
+    time
+  ) {
+    // Main Panel areas to update.
+    const clockEl = document.querySelector('#clock-display')
+    const shortTZEl = document.querySelector('#short-timezone')
+
+    // Details Panel areas to update.
+    const timezoneNameEl = document.querySelector('#timezone-name')
+    const dayOfYearEl = document.querySelector('#day-of-year')
+    const dayOfWeekEl = document.querySelector('#day-of-week')
+    const weekNumberEl = document.querySelector('#week-number')
+
+    shortTZEl.textContent = abbreviation
+    timezoneNameEl.textContent = timezone
+    dayOfWeekEl.textContent = dayOfWeek
+    dayOfYearEl.textContent = dayOfYear
+    weekNumberEl.textContent = weekNumber
+    clockEl.textContent = time
   }
 
   /**
@@ -63,20 +96,19 @@
    *
    * Called when the page loads and when the user clicks the refresh icon.
    */
-  function getRandomQuote() {
+  function getRandomQuote () {
     axios
       .get(quotableApiUrl)
-      .then((response) => {
-        const data = response.data;
-        quoteEl.textContent = data.content;
-        quoteAuthorEl.textContent = data.author;
+      .then(response => {
+        const { data } = response
+        updateQuote(data.content, data.author)
       })
-      .catch((err) => {
+      .catch(err => {
         console.error(
           `There was a problem retrieving data from ${quotableApiUrl}:`,
           err
-        );
-      });
+        )
+      })
   }
 
   /**
@@ -84,21 +116,19 @@
    *
    * Note: this call will fail if you have an ad-blocker enabled.
    */
-  function getLocation() {
+  function getLocation () {
     axios
       .get(freegeoipUrl)
-      .then((response) => {
-        const data = response.data;
-
-        cityNameTextEl.textContent = data.city;
-        countryTextEl.textContent = data.country_code;
+      .then(response => {
+        const { data } = response
+        updateLocation(data.city, data.country_code)
       })
-      .catch((err) =>
+      .catch(err =>
         console.error(
           `There was a problem retrieving data from ${freegeoipUrl}:`,
           err
         )
-      );
+      )
   }
 
   /**
@@ -107,38 +137,42 @@
    *
    * Note: This call will be slow if you have an ad-blocker enabled.
    */
-  function getTimeData() {
+  function getTimeData () {
     axios
       .get(worldTimeApiUrl)
-      .then((response) => {
-        const data = response.data;
+      .then(response => {
+        const { data } = response
 
-        shortTZEl.textContent = data.abbreviation;
-        timezoneNameEl.textContent = data.timezone;
-        dayOfWeekEl.textContent = data.day_of_week;
-        dayOfYearEl.textContent = data.day_of_year;
-        weekNumberEl.textContent = data.week_number;
+        const dt = DateTime.fromISO(data.datetime)
 
-        const dt = DateTime.fromISO(data.datetime);
-        clockEl.textContent = dt.toLocaleString(DateTime.TIME_24_SIMPLE);
+        updateTimeData(
+          data.abbreviation,
+          data.timezone,
+          data.day_of_week,
+          data.day_of_year,
+          data.week_number,
+          dt.toLocaleString(DateTime.TIME_24_SIMPLE)
+        )
 
-        if (dt.hour >= 5 && dt.hour < 12) {
-          setDayOrNight("daytime", "Good morning");
+        if (dt.hour >= 0 && dt.hour < 5) {
+          setDayOrNight('nighttime', 'Good evening')
+        } else if (dt.hour >= 5 && dt.hour < 12) {
+          setDayOrNight('daytime', 'Good morning')
         } else if (dt.hour >= 12 && dt.hour < 18) {
-          setDayOrNight("daytime", "Good afternoon");
+          setDayOrNight('daytime', 'Good afternoon')
         } else if (dt.hour >= 18) {
-          setDayOrNight("nighttime", "Good evening");
+          setDayOrNight('nighttime', 'Good evening')
         }
       })
-      .catch((err) =>
+      .catch(err =>
         console.error(
           `There was a problem retrieving data from ${worldTimeApiUrl}:`,
           err
         )
-      );
+      )
   }
 
-  getRandomQuote();
-  getLocation();
-  getTimeData();
-})();
+  getRandomQuote()
+  getLocation()
+  getTimeData()
+})(axios, luxon)
