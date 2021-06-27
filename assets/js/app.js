@@ -57,12 +57,16 @@
     quoteAuthorEl.textContent = author
   }
 
-  function updateLocation (city, country) {
+  function updateLocation (city, country, error) {
     const cityNameTextEl = document.querySelector('#city-name')
     const countryTextEl = document.querySelector('#country')
 
-    cityNameTextEl.textContent = city
-    countryTextEl.textContent = country
+    if( error ) {
+      cityNameTextEl.textContent = 'Error getting location. Ad Blockers may prevent the application from working correctly'
+    } else {
+      cityNameTextEl.textContent = city
+      countryTextEl.textContent = country
+    }
   }
 
   function updateTimeData (
@@ -123,12 +127,13 @@
         const { data } = response
         updateLocation(data.city, data.country_code)
       })
-      .catch(err =>
+      .catch(err => {
+        updateLocation(null, null, true)
         console.error(
           `There was a problem retrieving data from ${freegeoipUrl}:`,
           err
         )
-      )
+      })
   }
 
   /**
