@@ -50,7 +50,7 @@ Users should be able to:
 
 ### Links
 
-- [Solution URL](https://github.com/richardcyrus/fm-clock-app)
+- [Solution URL](https://www.frontendmentor.io/solutions/clock-app-html-sass-vanillajs-axios-LIAhvOxu9)
 - [Live Site URL](https://www.richardcyrus.com/fm-clock-app)
 
 ## My process
@@ -85,4 +85,4 @@ Users should be able to:
 ## Author
 
 - Website - [www.richardcyrus.com](https://www.richardcyrus.com)
-- Frontend Mentor - [@richarcyrus](https://www.frontendmentor.io/profile/richarcyrus)
+- Frontend Mentor - [@richardcyrus](https://www.frontendmentor.io/profile/richardcyrus)
