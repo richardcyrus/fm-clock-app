@@ -7,7 +7,9 @@
   const DateTime = luxon.DateTime
 
   // API services URLs
-  const freegeoipUrl = 'https://freegeoip.app/json/'
+  const apiKey = 'at_akBBhLLm3TteRYnLtJo9EGI0kskCx'
+  const clientIPAddressUrl = 'https://api64.ipify.org/?format=json'
+  const geoInfoBaseUrl = `https://geo.ipify.org/api/v1?apiKey=${apiKey}`
   const worldTimeApiUrl = 'https://worldtimeapi.org/api/ip'
 
   const quotableApiUrl =
@@ -38,7 +40,7 @@
    * @param   {String}  timePeriod  the class name to apply to the body tag.
    * @param   {String}  greeting    the greeting to display for the user.
    */
-  function setDayOrNight (timePeriod, greeting) {
+  function setDayOrNight(timePeriod, greeting) {
     const body = document.querySelector('#body')
     const greetingTextEl = document.querySelector('#greeting')
 
@@ -49,7 +51,7 @@
     body.classList.add(timePeriod)
   }
 
-  function updateQuote (quote, author) {
+  function updateQuote(quote, author) {
     const quoteEl = document.querySelector('#quote')
     const quoteAuthorEl = document.querySelector('.quote-author')
 
@@ -57,19 +59,20 @@
     quoteAuthorEl.textContent = author
   }
 
-  function updateLocation (city, country, error) {
+  function updateLocation(city, country, error) {
     const cityNameTextEl = document.querySelector('#city-name')
     const countryTextEl = document.querySelector('#country')
 
-    if( error ) {
-      cityNameTextEl.textContent = 'Error getting location. Ad Blockers may prevent the application from working correctly'
+    if (error) {
+      cityNameTextEl.textContent =
+        'Error getting location. Ad Blockers may prevent the application from working correctly'
     } else {
       cityNameTextEl.textContent = city
       countryTextEl.textContent = country
     }
   }
 
-  function updateTimeData (
+  function updateTimeData(
     abbreviation,
     timezone,
     dayOfWeek,
@@ -100,14 +103,14 @@
    *
    * Called when the page loads and when the user clicks the refresh icon.
    */
-  function getRandomQuote () {
+  function getRandomQuote() {
     axios
       .get(quotableApiUrl)
-      .then(response => {
+      .then((response) => {
         const { data } = response
         updateQuote(data.content, data.author)
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(
           `There was a problem retrieving data from ${quotableApiUrl}:`,
           err
@@ -116,21 +119,20 @@
   }
 
   /**
-   * Get location information from the Free IP Geolocation API.
-   *
-   * Note: this call will fail if you have an ad-blocker enabled.
+   * Get location information from the IPIFY Geolocation API.
    */
-  function getLocation () {
+  function getLocation(clientIP) {
+    const geoUrl = `${geoInfoBaseUrl}&ipAddress=${clientIP}`
     axios
-      .get(freegeoipUrl)
-      .then(response => {
+      .get(geoUrl)
+      .then((response) => {
         const { data } = response
-        updateLocation(data.city, data.country_code)
+        updateLocation(data.location.city, data.location.country)
       })
-      .catch(err => {
+      .catch((err) => {
         updateLocation(null, null, true)
         console.error(
-          `There was a problem retrieving data from ${freegeoipUrl}:`,
+          `There was a problem retrieving data from ${clientIPAddressUrl}:`,
           err
         )
       })
@@ -142,10 +144,10 @@
    *
    * Note: This call will be slow if you have an ad-blocker enabled.
    */
-  function getTimeData () {
+  function getTimeData() {
     axios
       .get(worldTimeApiUrl)
-      .then(response => {
+      .then((response) => {
         const { data } = response
 
         const dt = DateTime.fromISO(data.datetime)
@@ -169,7 +171,7 @@
           setDayOrNight('nighttime', 'Good evening')
         }
       })
-      .catch(err =>
+      .catch((err) =>
         console.error(
           `There was a problem retrieving data from ${worldTimeApiUrl}:`,
           err
@@ -177,7 +179,19 @@
       )
   }
 
-  getRandomQuote()
-  getLocation()
+  /**
+   * Get the client's IP address and use that to get location information.button
+   */
+  function getClientIPAddress() {
+    axios
+      .get(clientIPAddressUrl)
+      .then((response) => response.data.ip)
+      .then((clientIP) => {
+        return getLocation(clientIP)
+      })
+  }
+
+  getClientIPAddress()
   getTimeData()
+  getRandomQuote()
 })(axios, luxon)
