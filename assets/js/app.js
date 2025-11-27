@@ -35,6 +35,29 @@
   })
 
   /**
+   * Fetch data from a URL with retries.
+   *
+   * @param   {String}  url       the URL to fetch data from.
+   * @param   {Number}  retries   the number of retries to attempt.
+   * @returns {Object}            the response data.
+   */
+  async function fetchWithRetry(url, retries = 3) {
+    let attempt = 0
+
+    while( attempt < retries) {
+      try {
+        return await axios.get(url)
+      } catch (error) {
+        attempt++
+        if(attempt === retries) {
+          console.error(`Retries exceeded with error: `, error)
+          // throw error;
+        }
+      }
+    }
+  }
+
+  /**
    * Update the body class list and the greeting based on daytime or nighttime.
    *
    * @param   {String}  timePeriod  the class name to apply to the body tag.
@@ -145,8 +168,7 @@
    * Note: This call will be slow if you have an ad-blocker enabled.
    */
   function getTimeData() {
-    axios
-      .get(worldTimeApiUrl)
+    fetchWithRetry(worldTimeApiUrl)
       .then((response) => {
         const { data } = response
 
