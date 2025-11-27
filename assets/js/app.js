@@ -46,12 +46,13 @@
 
     while( attempt < retries) {
       try {
-        return await axios.get(url)
+        const response = await axios.get(url)
+        return response
       } catch (error) {
         attempt++
         if(attempt === retries) {
           console.error(`Retries exceeded with error: `, error)
-          // throw error;
+          throw error;
         }
       }
     }
