@@ -1,14 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Frontend Mentor | Clock App</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body id="body" class="daytime">
     <div class="container">
@@ -18,36 +26,57 @@
             <blockquote>
               <p id="quote">
                 The science of operations, as derived from mathematics more
-                especially, is a science of itself, and has its own abstract truth
-                and value.
+                especially, is a science of itself, and has its own abstract
+                truth and value.
               </p>
             </blockquote>
             <figcaption class="quote-author">Ada Lovelace</figcaption>
           </figure>
-          <button class="button refresh" id="refresh" type="button" aria-label="Load new quote">
-            <svg class="refresh-icon" viewBox="0 0 18 18" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+          <button
+            class="button refresh"
+            id="refresh"
+            type="button"
+            aria-label="Load new quote"
+          >
+            <svg
+              class="refresh-icon"
+              viewBox="0 0 18 18"
+              width="18"
+              height="18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 d="M7.188 10.667a.208.208 0 01.147.355l-2.344 2.206a5.826 5.826 0 009.578-2.488l2.387.746A8.322 8.322 0 013.17 14.94l-2.149 2.022a.208.208 0 01-.355-.148v-6.148h6.52zm7.617-7.63L16.978.958a.208.208 0 01.355.146v6.23h-6.498a.208.208 0 01-.147-.356L13 4.765A5.825 5.825 0 003.43 7.26l-2.386-.746a8.32 8.32 0 0113.76-3.477z"
-                fill="#FFF" fill-rule="nonzero" opacity=".5" />
+                fill="#FFF"
+                fill-rule="nonzero"
+                opacity=".5"
+              />
             </svg>
           </button>
         </div>
         <p class="greeting">
           <span class="sun-moon-icon"></span>
-          <span id="greeting" class="greeting-text"></span><span class="time-introduction">, it's
-            currently</span>
+          <span id="greeting" class="greeting-text"></span
+          ><span class="time-introduction">, it's currently</span>
         </p>
         <p class="time-display">
           <span id="clock-display" class="clock">Updating...</span>
           <span id="short-timezone" class="timezone-abbr"></span>
         </p>
         <p class="location-display">
-          in <span id="city-name" class="location"></span>, <span id="country"></span>
+          in <span id="city-name" class="location"></span>,
+          <span id="country"></span>
         </p>
         <button type="button" class="button disclosure">
           <span class="disclosure-text">More</span>
           <span class="disclosure-icon__container">
-            <svg class="disclosure-icon" viewBox="0 0 40 40" width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              class="disclosure-icon"
+              viewBox="0 0 40 40"
+              width="40"
+              height="40"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <g fill="none" fill-rule="evenodd">
                 <circle fill="#303030" cx="20" cy="20" r="20" />
                 <path stroke="#FFF" stroke-width="2" d="M14 23l6-6 6 6" />
@@ -71,10 +100,16 @@
         </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"
-      integrity="sha256-JLmknTdUZeZZ267LP9qB+/DT7tvxOOKctSKeUC2KT6E=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/luxon@1.27.0/build/global/luxon.min.js"
-      integrity="sha256-cJnCTPRTD3OUjTD4Ml0WEMsmTiLl71arKaZ9DEZJk0o=" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js"
+      integrity="sha256-B3naREaZ1fMFNS84kvok78FBjl9K3hAXsozbv+d64ZI="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/luxon@3.7.2/build/global/luxon.min.js"
+      integrity="sha256-UWxf6lyCvfH7XEcrmq/cqc2m3IBrLBLOnWLC4Pw0gQQ="
+      crossorigin="anonymous"
+    ></script>
     <script src="./assets/js/app.js"></script>
   </body>
 </html>

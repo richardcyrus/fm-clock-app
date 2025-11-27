@@ -28,8 +28,8 @@ dd {
 /* Remove list styles on ul, ol elements with a list role, which suggests
   * default styling will be removed
   */
-ul[role="list"],
-ol[role="list"] {
+ul[role='list'],
+ol[role='list'] {
   list-style: none;
 }
 
@@ -82,7 +82,7 @@ select {
 /*#endregion*/
 
 :root {
-  --font-family: "Inter", sans-serif;
+  --font-family: 'Inter', sans-serif;
   --font-size-clock-display: 6.25rem;
   --font-size-details-panel: 1.25rem;
   --font-size-disclosure: 0.75rem;
@@ -135,8 +135,8 @@ body {
 .container {
   display: grid;
   grid-template-areas:
-    "main"
-    "details";
+    'main'
+    'details';
   grid-template-columns: 1fr;
   grid-template-rows: 1fr auto;
   min-height: 100vh;
@@ -262,12 +262,12 @@ body {
   color: #ffffff;
   display: grid;
   grid-template-areas:
-    "quote"
-    "."
-    "greeting"
-    "timedisplay"
-    "locationdisplay"
-    "disclosure";
+    'quote'
+    '.'
+    'greeting'
+    'timedisplay'
+    'locationdisplay'
+    'disclosure';
   grid-template-rows:
     minmax(6rem, min-content) 14.1875rem 1.5625rem minmax(7.25rem, min-content)
     2.75rem 5.4375rem;
@@ -286,11 +286,11 @@ body {
 
   @media screen and (min-width: 75em) {
     grid-template-areas:
-      "quote ."
-      ". ."
-      "greeting ."
-      "timedisplay ."
-      "locationdisplay disclosure";
+      'quote .'
+      '. .'
+      'greeting .'
+      'timedisplay .'
+      'locationdisplay disclosure';
     grid-template-columns: 43rem auto;
     grid-template-rows:
       minmax(8rem, min-content) 13.5624rem 2.75rem minmax(12.5rem, min-content)
@@ -546,9 +546,9 @@ body {
     @media screen and (min-width: 62em) {
       display: grid;
       grid-template-areas:
-        "greeting ."
-        "timedisplay ."
-        "locationdisplay disclosure";
+        'greeting .'
+        'timedisplay .'
+        'locationdisplay disclosure';
       grid-template-columns: 38rem auto;
       grid-template-rows: 2.75rem minmax(12.5rem, min-content) 3.5rem;
     }

@@ -8,7 +8,7 @@
 *::before,
 *::after {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* Remove default margin */
@@ -28,8 +28,8 @@ dd {
 /* Remove list styles on ul, ol elements with a list role, which suggests
   * default styling will be removed
   */
-ul[role=list],
-ol[role=list] {
+ul[role='list'],
+ol[role='list'] {
   list-style: none;
 }
 
@@ -48,7 +48,7 @@ body {
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
 }
 
 /* Make images easier to work with */
@@ -73,20 +73,20 @@ select {
   }
 
   *,
-*::before,
-*::after {
+  *::before,
+  *::after {
     -webkit-animation-duration: 0.01ms !important;
-            animation-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
     -webkit-animation-iteration-count: 1 !important;
-            animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
     -webkit-transition-duration: 0.01ms !important;
-            transition-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
 }
 /*#endregion*/
 :root {
-  --font-family: "Inter", sans-serif;
+  --font-family: 'Inter', sans-serif;
   --font-size-clock-display: 6.25rem;
   --font-size-details-panel: 1.25rem;
   --font-size-disclosure: 0.75rem;
@@ -136,7 +136,7 @@ body {
 
 .container {
   display: grid;
-  grid-template-areas: "main" "details";
+  grid-template-areas: 'main' 'details';
   grid-template-columns: 1fr;
   grid-template-rows: 1fr auto;
   min-height: 100vh;
@@ -151,10 +151,10 @@ body {
 
 .button {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-item-align: start;
-      align-self: start;
+  align-self: start;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -164,8 +164,8 @@ body {
   font-family: inherit;
   font-size: var(--font-size-disclosure);
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   padding: 0;
   text-align: center;
 }
@@ -204,7 +204,7 @@ body {
 .daytime .details-panel {
   background-color: rgba(255, 255, 255, 0.75);
   -webkit-backdrop-filter: blur(15px);
-          backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
 }
 @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
   .daytime .details-panel {
@@ -243,7 +243,7 @@ body {
 .nighttime .details-panel {
   background-color: rgba(0, 0, 0, 0.75);
   -webkit-backdrop-filter: blur(15px);
-          backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
 }
 @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
   .nighttime .details-panel {
@@ -259,19 +259,37 @@ body {
 
 .main-panel {
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   background-color: rgba(0, 0, 0, 0.4);
   color: #ffffff;
   display: grid;
-  grid-template-areas: "quote" "." "greeting" "timedisplay" "locationdisplay" "disclosure";
-  grid-template-rows: minmax(6rem, -webkit-min-content) 14.1875rem 1.5625rem minmax(7.25rem, -webkit-min-content) 2.75rem 5.4375rem;
-  grid-template-rows: minmax(6rem, min-content) 14.1875rem 1.5625rem minmax(7.25rem, min-content) 2.75rem 5.4375rem;
+  grid-template-areas: 'quote' '.' 'greeting' 'timedisplay' 'locationdisplay' 'disclosure';
+  grid-template-rows: minmax(
+      6rem,
+      -webkit-min-content
+    ) 14.1875rem 1.5625rem minmax(
+      7.25rem,
+      -webkit-min-content
+    ) 2.75rem 5.4375rem;
+  grid-template-rows: minmax(6rem, min-content) 14.1875rem 1.5625rem minmax(
+      7.25rem,
+      min-content
+    ) 2.75rem 5.4375rem;
   padding: 2rem 1.625rem 2.5rem;
 }
 @media screen and (min-width: 48em) {
   .main-panel {
-    grid-template-rows: minmax(8rem, -webkit-min-content) 18.25rem 1.75rem minmax(10.9375rem, -webkit-min-content) minmax(1.75rem, -webkit-min-content) 8.5rem;
-    grid-template-rows: minmax(8rem, min-content) 18.25rem 1.75rem minmax(10.9375rem, min-content) minmax(1.75rem, min-content) 8.5rem;
+    grid-template-rows: minmax(
+        8rem,
+        -webkit-min-content
+      ) 18.25rem 1.75rem minmax(10.9375rem, -webkit-min-content) minmax(
+        1.75rem,
+        -webkit-min-content
+      ) 8.5rem;
+    grid-template-rows: minmax(8rem, min-content) 18.25rem 1.75rem minmax(
+        10.9375rem,
+        min-content
+      ) minmax(1.75rem, min-content) 8.5rem;
     padding: 5rem 8.2294rem 4rem 4rem;
   }
 }
@@ -282,21 +300,27 @@ body {
 }
 @media screen and (min-width: 75em) {
   .main-panel {
-    grid-template-areas: "quote ." ". ." "greeting ." "timedisplay ." "locationdisplay disclosure";
+    grid-template-areas: 'quote .' '. .' 'greeting .' 'timedisplay .' 'locationdisplay disclosure';
     grid-template-columns: 43rem auto;
-    grid-template-rows: minmax(8rem, -webkit-min-content) 13.5624rem 2.75rem minmax(12.5rem, -webkit-min-content) 3.5rem;
-    grid-template-rows: minmax(8rem, min-content) 13.5624rem 2.75rem minmax(12.5rem, min-content) 3.5rem;
+    grid-template-rows: minmax(
+        8rem,
+        -webkit-min-content
+      ) 13.5624rem 2.75rem minmax(12.5rem, -webkit-min-content) 3.5rem;
+    grid-template-rows: minmax(8rem, min-content) 13.5624rem 2.75rem minmax(
+        12.5rem,
+        min-content
+      ) 3.5rem;
     padding: 3.5rem 10.3125rem 6.125rem;
   }
 }
 
 .quote {
   -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
+  -ms-flex-align: start;
+  align-items: start;
   -webkit-column-gap: 1.0419rem;
-     -moz-column-gap: 1.0419rem;
-          column-gap: 1.0419rem;
+  -moz-column-gap: 1.0419rem;
+  column-gap: 1.0419rem;
   display: grid;
   grid-area: quote;
   grid-template-columns: auto 1.0419rem;
@@ -310,8 +334,8 @@ body {
 @media screen and (min-width: 62em) {
   .quote {
     -webkit-column-gap: 0.9794rem;
-       -moz-column-gap: 0.9794rem;
-            column-gap: 0.9794rem;
+    -moz-column-gap: 0.9794rem;
+    column-gap: 0.9794rem;
   }
 }
 
@@ -340,9 +364,11 @@ body {
 }
 .refresh:focus {
   -webkit-box-shadow: 0 0 0 0.25rem #303030;
-          box-shadow: 0 0 0 0.25rem #303030;
+  box-shadow: 0 0 0 0.25rem #303030;
 }
-.refresh:hover .refresh-icon > path, .refresh:active .refresh-icon > path, .refresh:focus .refresh-icon > path {
+.refresh:hover .refresh-icon > path,
+.refresh:active .refresh-icon > path,
+.refresh:focus .refresh-icon > path {
   opacity: 1;
 }
 @media screen and (min-width: 48em) {
@@ -358,8 +384,8 @@ body {
 
 .greeting {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -404,7 +430,7 @@ body {
 @media screen and (min-width: 48em) {
   .time-display {
     -ms-flex-item-align: end;
-        align-self: end;
+    align-self: end;
   }
 }
 
@@ -452,15 +478,16 @@ body {
 }
 .disclosure:focus {
   -webkit-box-shadow: 0 0 0 0.25rem #999999;
-          box-shadow: 0 0 0 0.25rem #999999;
+  box-shadow: 0 0 0 0.25rem #999999;
 }
-.disclosure:hover .disclosure-icon circle, .disclosure:focus .disclosure-icon circle {
+.disclosure:hover .disclosure-icon circle,
+.disclosure:focus .disclosure-icon circle {
   fill: #999999;
 }
 @media screen and (min-width: 48em) {
   .disclosure {
     -ms-flex-item-align: end;
-        align-self: end;
+    align-self: end;
     margin-top: 5rem;
     max-height: 4rem;
     max-width: 10rem;
@@ -509,7 +536,7 @@ body {
 .disclosure-icon {
   height: 2rem;
   -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+  transform: rotate(180deg);
   width: 2rem;
 }
 @media screen and (min-width: 48em) {
@@ -563,7 +590,7 @@ body {
 @media screen and (min-width: 62em) {
   .show-details .main-panel {
     display: grid;
-    grid-template-areas: "greeting ." "timedisplay ." "locationdisplay disclosure";
+    grid-template-areas: 'greeting .' 'timedisplay .' 'locationdisplay disclosure';
     grid-template-columns: 38rem auto;
     grid-template-rows: 2.75rem minmax(12.5rem, -webkit-min-content) 3.5rem;
     grid-template-rows: 2.75rem minmax(12.5rem, min-content) 3.5rem;
@@ -587,12 +614,12 @@ body {
 }
 .show-details .disclosure-icon {
   -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 .show-details .details-panel {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   display: grid;
   height: 16rem;
   row-gap: 1rem;
@@ -600,8 +627,8 @@ body {
 .show-details .details-panel .left-panel,
 .show-details .details-panel .right-panel {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   row-gap: 1rem;
@@ -610,13 +637,13 @@ body {
 @media screen and (min-width: 48em) {
   .show-details .details-panel {
     -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: start;
+    -ms-flex-align: start;
+    align-items: start;
     grid-template-columns: repeat(2, 1fr);
     height: 27.5rem;
   }
   .show-details .details-panel .left-panel,
-.show-details .details-panel .right-panel {
+  .show-details .details-panel .right-panel {
     grid-template-columns: auto;
     grid-template-rows: repeat(2, -webkit-min-content);
     grid-template-rows: repeat(2, min-content);
@@ -629,7 +656,7 @@ body {
     padding-left: 2.5rem;
   }
   .show-details .details-panel .day-of-year__label,
-.show-details .details-panel .week-number__label {
+  .show-details .details-panel .week-number__label {
     margin-top: 3rem;
   }
 }
@@ -644,7 +671,7 @@ body {
     padding-left: 5.875rem;
   }
   .show-details .details-panel .day-of-year__label,
-.show-details .details-panel .week-number__label {
+  .show-details .details-panel .week-number__label {
     margin-top: 2.625rem;
   }
 }
