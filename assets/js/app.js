@@ -16,10 +16,10 @@
     'https://api.quotable.io/random?tags=technology|famous-quotes'
 
   // Buttons for click handlers
-  const refreshButton = document.querySelector('.refresh')
+  // const refreshButton = document.querySelector('.refresh')
   const showDetailsButton = document.querySelector('.disclosure')
 
-  refreshButton.addEventListener('click', getRandomQuote)
+  // refreshButton.addEventListener('click', getRandomQuote)
 
   showDetailsButton.addEventListener('click', function () {
     const body = document.querySelector('#body')
@@ -215,5 +215,5 @@
 
   getClientIPAddress()
   getTimeData()
-  getRandomQuote()
+  // getRandomQuote()
 })(axios, luxon)
